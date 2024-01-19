@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Button, Container, Grid, TextField } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Search = () => {
   const [username, setUsername] = useState("");
@@ -29,9 +30,11 @@ const Search = () => {
           />
         </Grid>
         <Grid item xs={12}>
+          <Link to={`/users/${username}`}>
             <Button variant="contained" fullWidth>
-                Buscar
+              Buscar
             </Button>
+          </Link>
         </Grid>
       </Grid>
     </Container>
