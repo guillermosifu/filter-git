@@ -18,15 +18,20 @@ const Search = () => {
         height: "100vh",
       }}
     >
-      <Grid container>
+      <Grid container spacing={3}>
         <h1>Filtra tu Usuario</h1>
-        <Grid item>
+        <Grid item xs={12}>
           <TextField
             label="Busca tu usuario"
             fullWidth
             onChange={handleInputSearch}
             value={username}
           />
+        </Grid>
+        <Grid item xs={12}>
+            <Button variant="contained" fullWidth>
+                Buscar
+            </Button>
         </Grid>
       </Grid>
     </Container>
