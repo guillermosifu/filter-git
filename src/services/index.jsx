@@ -5,6 +5,10 @@ export const searchUsers = async (username) => {
     const response = await fetch(
       `${config.baseUrl}/search/users?q=${username}`
     );
+
+    const data = await response.json();
+
+    return data;
   } catch (error) {
     return error;
   }
@@ -14,6 +18,9 @@ export const searchUsers = async (username) => {
 export const searchUser = async (username) => {
   try {
     const response = await fetch(`${config.baseUrl}/users/${username}`);
+
+    const data = await response.json();
+    return data;
   } catch (error) {
     return error;
   }
@@ -21,11 +28,14 @@ export const searchUser = async (username) => {
 
 // esta es la funcion de los repositorios
 
-export const getRepos =async (username) => {
+export const getRepos = async (username) => {
   try {
     const response = await fetch(
-        `${config.baseUrl}/users/${username}/repos?sort=created`
-    )
+      `${config.baseUrl}/users/${username}/repos?sort=created`
+    );
+
+    const data = await response.json();
+    return data;
   } catch (error) {
     return error;
   }

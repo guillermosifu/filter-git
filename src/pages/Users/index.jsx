@@ -9,11 +9,11 @@ const Users = () => {
 
   const history = useNavigate();
 
-  const [userList, setUserList] = useState([]);
+  const[usersList, setUsersList] = useState([]);
 
   const fetchUsers = async () => {
     const data = await searchUsers(username);
-    setUserList(data.items);
+    setUsersList(data.items || []);
     console.log(data);
   };
 
@@ -26,16 +26,16 @@ const Users = () => {
   }, []);
 
   return (
-    <Container>
-      <Box>
+    <Container maxWidth="md">
+      <Box mt={10}>
         <Typography variant="h6">
-          Resultado de busqueda del usuario :@{username}
+          Resultado de la busqueda del usuario: @{username}
         </Typography>
       </Box>
       <Box>
-        {userList.lenght > 0 &&
-          userList.map((user, index) => (
-            <CustomCard key={index} handleClick={handleClick} user={user} />
+        {usersList.length > 0 &&
+          usersList.map((user, index) => (
+            <CustomCard key={index} user={user} handleClick={handleClick} />
           ))}
       </Box>
     </Container>
@@ -43,3 +43,4 @@ const Users = () => {
 };
 
 export default Users;
+
